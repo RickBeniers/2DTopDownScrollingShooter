@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - BGL1
+  - BGL2
+  - BGL3
+  - BGL4
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BGL1
+    uniqueID: 2431427901
+    locked: 0
+  - name: BGL2
+    uniqueID: 590231173
+    locked: 0
+  - name: BGL3
+    uniqueID: 590428229
+    locked: 0
+  - name: BGL4
+    uniqueID: 2756174731
     locked: 0
