@@ -1,0 +1,54 @@
+
+Ontwerp project 1 leerjaar 3
+
+
+-----Base Game-V1----
+
+2D retro top-down scrolling shooter.
+
+Windows 10.
+Unity C#.
+
+Airplane based.
+
+speler vlieg in een vliegtuig op een scrollende achtergrond waardoor het lijkt dat de speler over terein vliegt (land, zee, verschillende bioms).
+speler krijg een missie aan de start van de game sessie, als hij deze voltooit dan is het level voorbij(voorbeeld : schakel 10 tegenstanders uit), 
+speler wordt tegen gehouden door AI tegenstanders die in soortgelijke vliegtuigen vliegen. 
+door tegenstanders neer te schieten krijg de speler ervaring(XP).
+speler verdiend geld elke 10 seconden en ontvangt een bonus voor het voltooien van missies en neerhalen van tegenstanders(Kills). 
+met XP en geld kan de speler betere vliegtuigen kopen.
+
+-1 Biplane
+-2 Monoplane
+-3 JetFighter
+-4 Supersonic Jet
+-5 Stealth
+
+-----benodigde processen & onderdelen-V1----
+
+achtergrond bestaande uit :
+	- laag 1 zee
+	- laag 2 land
+	- laag 3 wolken
+	- laag 4 objecten
+5 speler gecontrolleerde vliegtuigen(W,A,D,S, Space).
+art/sprites voor zee, land, wolken, vliegtuigen, kogels.
+AI gecontrolleerde vliegtuigen(Attack, left, right, forward)
+
+-----Uitbreiding-V2----
+
+vliegtuig modificaties(speciale camouflage, logos, marks of exelence).
+speciale missies(Search&Destroy, drop rescue team, capture the enemy, Protect).
+Co-op game sessie(2 spelers VS tegenstanders).
+DeathMatch game sessie(2 spelers tegen elkaar, met of zonder AI).
+evade Radar detection.
+missle Lock & guidance
+
+-----benodigde processen & onderdelen-V2----
+
+---------------------Deadlines---------------------
+
+5 september concept inleveren.
+1  oktober V1 inleveren
+29 oktober v2 inleveren
+
