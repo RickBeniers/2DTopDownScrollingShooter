@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject[] enemies;
     [SerializeField]
@@ -19,7 +20,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private bool stop;
     [SerializeField]
-    int randEnemy;
+    private int randEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -39,9 +40,9 @@ public class Spawner : MonoBehaviour
         while (!stop)
         {
             //choose randomly which enemy is going to be picked for spawning.
-            randEnemy = Random.Range(0, 6);
+            randEnemy = Random.Range(0, 2);
             //choose a random position for the enemy.
-            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), -10);
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), -20);
             //instantiate the enemy.
             Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
             //wait for the timer to completed to spawn again.
