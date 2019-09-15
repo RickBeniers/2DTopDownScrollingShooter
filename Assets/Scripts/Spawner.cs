@@ -43,7 +43,8 @@ public class Spawner : MonoBehaviour
             //choose a random position for the enemy.
             Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), -10);
             //instantiate the enemy.
-            Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+            GameObject go = Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+            go.transform.parent = GameObject.Find("BackGroundObjectCollector").transform;
             //wait for the timer to completed to spawn again.
             yield return new WaitForSeconds(spawnWait);
         }

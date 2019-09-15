@@ -47,6 +47,7 @@ public class BulletController : MonoBehaviour
             go.GetComponent<Rigidbody>().freezeRotation = true;
             go.GetComponent<Rigidbody>().transform.localScale = new Vector3(0.04f, 0.05f, 1f);
             go.GetComponent<Rigidbody>().velocity = new Vector2(0, 6);
+            go.tag = "Bullet";
             bulletsFired++;
         
     }

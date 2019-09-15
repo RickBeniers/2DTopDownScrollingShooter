@@ -21,6 +21,8 @@ public class EnemySpawner : MonoBehaviour
     private bool stop;
     [SerializeField]
     private int randEnemy;
+    [SerializeField]
+    private int SpawnedEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +44,13 @@ public class EnemySpawner : MonoBehaviour
             //choose randomly which enemy is going to be picked for spawning.
             randEnemy = Random.Range(0, 2);
             //choose a random position for the enemy.
-            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), -20);
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), 0);
             //instantiate the enemy.
-            Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+            GameObject go = Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+            go.transform.parent = GameObject.Find("EnemyCollector").transform;
+            go.GetComponent<Rigidbody2D>().freezeRotation = true;
+            go.GetComponent<Rigidbody2D>().gravityScale = 0;
+            SpawnedEnemies++;
             //wait for the timer to completed to spawn again.
             yield return new WaitForSeconds(spawnWait);
         }
