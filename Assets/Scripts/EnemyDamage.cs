@@ -19,13 +19,14 @@ public class EnemyDamage : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (bcd.gameObject.tag == "Bullet")
+        if ((col.tag == "playerShipTag") || (col.tag == "PlayerBulletTag"))
         {
             Debug.Log("Boom");
             bulletInRange = true;
         }
     }
+
 }

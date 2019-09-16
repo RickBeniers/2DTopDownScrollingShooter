@@ -10,10 +10,12 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]
     private Vector2 moveSpeed;
-    [SerializeField]
-    private bool Detected;
 
     public BoxCollider2D bcd;
+    [SerializeField]
+    public int damageToGive;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +29,22 @@ public class EnemyMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(0, -0.604f);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        
+        if (collision.gameObject.tag == "PlayerBulletTag")
         {
-            Debug.Log("Player Detected");
-            Detected = true;
+            Debug.Log("enemy hit");
+            //Destroy(gameObject);
+            //HealthController();
+
+            GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
+            
         }
     }
-    
+    void HealthController()
+    {
+
+    }
+
 }

@@ -45,18 +45,21 @@ public class BulletController : MonoBehaviour
             go.transform.parent = GameObject.Find("ShotCollector").transform;
             //go.AddComponent<Rigidbody>();
             //set the gravity to false.
-            go.GetComponent<Rigidbody>().useGravity = false;
+            go.GetComponent<Rigidbody2D>().gravityScale = 0;
             //freeze rotation.
-            go.GetComponent<Rigidbody>().freezeRotation = true;
+            go.GetComponent<Rigidbody2D>().freezeRotation = true;
             //set the scale of the object.
-            go.GetComponent<Rigidbody>().transform.localScale = new Vector3(0.04f, 0.05f, 1f);
+            go.GetComponent<Rigidbody2D>().transform.localScale = new Vector3(0.04f, 0.05f, 1f);
             //set the speed of the object.
-            go.GetComponent<Rigidbody>().velocity = new Vector2(0, 6);
+            go.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 6);
+            //switch collision detection mode
+            //go.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             //give the object the tag bullet
-            go.tag = "Bullet";
+            go.tag = "PlayerBulletTag";
             //increse the Int variable bulletsFired.
             bulletsFired++;
         
     }
+    
 }
 

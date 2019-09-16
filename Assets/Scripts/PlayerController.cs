@@ -27,4 +27,12 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
         Debug.Log("previous position loaded");
     }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if((col.tag == "EnemyBulletTag") || (col.tag == "EnemyShipTag"))
+        {
+            Debug.Log("We are hit!");
+            Destroy(gameObject);
+        }
+    }
 }

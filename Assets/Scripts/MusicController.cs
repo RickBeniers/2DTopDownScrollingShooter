@@ -39,7 +39,7 @@ public class MusicController : MonoBehaviour
         }
         else
         {
-            musicTracks[currentTrack].Stop();
+            //musicTracks[currentTrack].Stop();
         }
     }
 }
