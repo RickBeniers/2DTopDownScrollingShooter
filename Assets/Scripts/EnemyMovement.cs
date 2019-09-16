@@ -35,11 +35,5 @@ public class EnemyMovement : MonoBehaviour
             Detected = true;
         }
     }
-    private void OnTriggerEnter2D(Collider collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            Debug.Log("Boom");
-        }
-    }
+    
 }

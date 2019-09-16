@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour
     }
     private void Update()
     {
-        //if spacebar is pressed
+        //if spacebar is pressed execute ShootBullet script.
         if (Input.GetButton("Jump"))
         {
             shooting = true;
@@ -39,15 +39,22 @@ public class BulletController : MonoBehaviour
     private void ShootBullet()
     {
         
-            //create new bullet gameobject and give position + speed.
+            //create new bullet gameobject and give position.
             GameObject go = Instantiate(projectile, transform.position, transform.rotation);
+            //asign the instantiated object to a parent object.
             go.transform.parent = GameObject.Find("ShotCollector").transform;
-            go.AddComponent<Rigidbody>();
+            //go.AddComponent<Rigidbody>();
+            //set the gravity to false.
             go.GetComponent<Rigidbody>().useGravity = false;
+            //freeze rotation.
             go.GetComponent<Rigidbody>().freezeRotation = true;
+            //set the scale of the object.
             go.GetComponent<Rigidbody>().transform.localScale = new Vector3(0.04f, 0.05f, 1f);
+            //set the speed of the object.
             go.GetComponent<Rigidbody>().velocity = new Vector2(0, 6);
+            //give the object the tag bullet
             go.tag = "Bullet";
+            //increse the Int variable bulletsFired.
             bulletsFired++;
         
     }

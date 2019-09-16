@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
             //choose randomly which enemy is going to be picked for spawning.
             randEnemy = Random.Range(0, 6);
             //choose a random position for the enemy.
-            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), -10);
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), -1);
             //instantiate the enemy.
             GameObject go = Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
             go.transform.parent = GameObject.Find("BackGroundObjectCollector").transform;
