@@ -21,7 +21,8 @@ public class CollisionDetection : MonoBehaviour
     {
         if(collision.tag == "EnemyShipTag")
         {
-            Instantiate(damageBurst, transform.position, transform.rotation);
+            GameObject go = Instantiate(damageBurst, transform.position, transform.rotation);
+            go.transform.parent = GameObject.Find("EffectCollector").transform;
             Destroy(gameObject);
         }
     }

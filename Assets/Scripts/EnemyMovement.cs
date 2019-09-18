@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -15,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     public int damageToGive;
 
-    
+    public GameObject Canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -36,15 +37,12 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("enemy hit");
             //Destroy(gameObject);
-            //HealthController();
+            Canvas.SetActive(true);
 
             GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
             
         }
     }
-    void HealthController()
-    {
-
-    }
+    
 
 }
