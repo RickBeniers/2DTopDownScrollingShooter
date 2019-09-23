@@ -8,10 +8,15 @@ public class EnemyDamage : MonoBehaviour
     private bool bulletInRange = false;
     private BoxCollider2D bcd;
 
+    [SerializeField]
+    private int damageToGive;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         bcd = GetComponent<BoxCollider2D>();
+        
     }
 
     // Update is called once per frame
@@ -24,8 +29,9 @@ public class EnemyDamage : MonoBehaviour
 
         if ((col.tag == "playerShipTag") || (col.tag == "PlayerBulletTag"))
         {
-            Debug.Log("Boom");
+            //Debug.Log("Boom");
             bulletInRange = true;
+            GetComponentInParent<EnemyHealth>().HurtEnemy(damageToGive);
         }
     }
 

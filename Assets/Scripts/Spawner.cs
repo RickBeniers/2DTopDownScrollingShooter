@@ -45,6 +45,7 @@ public class Spawner : MonoBehaviour
             //instantiate the enemy.
             GameObject go = Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
             go.transform.parent = GameObject.Find("BackGroundObjectCollector").transform;
+            Destroy(go, 60f);
             //wait for the timer to completed to spawn again.
             yield return new WaitForSeconds(spawnWait);
         }

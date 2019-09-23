@@ -17,33 +17,36 @@ public class EnemyHealth : MonoBehaviour
     
 
     [SerializeField]
-    private float XpToGive;
+    private int XpToGive;
     [SerializeField]
-    private float GoldTogive;
+    private int GoldTogive;
+    private GameObject playermanager;
+
 
     private void Start()
     {
         CurrentHealth = MaxHealth;
         MaxHealth = startHealth;
+
+        playermanager = GameObject.Find("PlayerManager");
     }
-    private void Update()
+    public void Update()
     {
         if(CurrentHealth <= 0)
         {
             Destroy(gameObject);
             //instantiate explosion effect
-            XpToGive += 10;
-            GetComponent<PointsController>().GainGold(XpToGive);
-            GoldTogive += 100;
-            GetComponent<PointsController>().GainXP(GoldTogive);
+            playermanager.GetComponent<PointsController>().GainGold(GoldTogive);
+            playermanager.GetComponent<PointsController>().GainXP(XpToGive);
             
         }
+            
     }
 
     public void HurtEnemy(int damageToGive)
     {
         CurrentHealth -= damageToGive;
-        Healthbar.fillAmount = CurrentHealth / 100f;
+        Healthbar.fillAmount = CurrentHealth / startHealth;
     }
     public void SetMaxHealth()
     {

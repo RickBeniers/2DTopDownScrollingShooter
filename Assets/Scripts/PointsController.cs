@@ -6,9 +6,9 @@ using UnityEngine;
 public class PointsController : MonoBehaviour
 {
     [SerializeField]
-    private float currentXP =0;
+    private int currentXP = 0;
     [SerializeField]
-    private float currentGold =0;
+    private int currentGold = 0;
 
     public Text XPcounter;
     public Text Goldcounter;
@@ -16,18 +16,19 @@ public class PointsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //XPcounter = 
+        XPcounter.text = "0";
+        Goldcounter.text = "0";
     }
 
     
-    public void GainXP(float XpToGive)
+    public void GainXP(int XpToGive)
     {
         currentXP += XpToGive;
-        
+        XPcounter.text = "" + currentXP;
     }
-    public void GainGold(float GoldToGive)
+    public void GainGold(int GoldToGive)
     {
         currentGold += GoldToGive;
-
+        Goldcounter.text = "" + currentGold;
     }
 }

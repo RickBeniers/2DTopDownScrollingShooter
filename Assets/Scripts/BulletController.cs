@@ -58,6 +58,7 @@ public class BulletController : MonoBehaviour
             go.tag = "PlayerBulletTag";
             //increse the Int variable bulletsFired.
             bulletsFired++;
+            Destroy(go, 10f);
         
     }
     

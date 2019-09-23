@@ -51,6 +51,7 @@ public class EnemySpawner : MonoBehaviour
             go.GetComponent<Rigidbody2D>().freezeRotation = true;
             go.GetComponent<Rigidbody2D>().gravityScale = 0;
             SpawnedEnemies++;
+            Destroy(go, 60f);
             //wait for the timer to completed to spawn again.
             yield return new WaitForSeconds(spawnWait);
         }

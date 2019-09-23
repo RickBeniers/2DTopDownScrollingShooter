@@ -12,16 +12,16 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private Vector2 moveSpeed;
 
-    public BoxCollider2D bcd;
+    
     [SerializeField]
-    public int damageToGive;
+    private int damageToGive;
 
     public GameObject Canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInParent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
     }
 
@@ -35,11 +35,9 @@ public class EnemyMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "PlayerBulletTag")
         {
-            Debug.Log("enemy hit");
+            //Debug.Log("enemy hit");
             //Destroy(gameObject);
             Canvas.SetActive(true);
-
-            GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
             
         }
     }
