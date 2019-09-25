@@ -12,12 +12,13 @@ public class BulletController : MonoBehaviour
     private bool shooting;
     [SerializeField]
     private int bulletsFired;
+    public GameObject fireEffect;
 
     private void Start()
     {
         //give the bullet a velocity when fired.
         //GetComponent<Rigidbody>().velocity = new Vector2(0, 20);
-        //Debug.Log("A");
+        //Debug.Log("A");s
         
     }
     private void Update()
@@ -26,10 +27,12 @@ public class BulletController : MonoBehaviour
         if (Input.GetButton("Jump"))
         {
             shooting = true;
+            fireEffect.SetActive(true);
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             shooting = false;
+            fireEffect.SetActive(false);
         }
         if (shooting == true)
         {
@@ -56,6 +59,7 @@ public class BulletController : MonoBehaviour
             //go.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             //give the object the tag bullet
             go.tag = "PlayerBulletTag";
+            
             //increse the Int variable bulletsFired.
             bulletsFired++;
             Destroy(go, 10f);
