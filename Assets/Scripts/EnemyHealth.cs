@@ -21,6 +21,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private int GoldTogive;
     private GameObject playermanager;
+    private GameObject Questmanager;
+    [SerializeField]
+    private bool enemyKilled;
 
 
     private void Start()
@@ -34,11 +37,12 @@ public class EnemyHealth : MonoBehaviour
     {
         if(CurrentHealth <= 0)
         {
+            enemyKilled = true;
             Destroy(gameObject);
             //instantiate explosion effect
             playermanager.GetComponent<PointsController>().GainGold(GoldTogive);
             playermanager.GetComponent<PointsController>().GainXP(XpToGive);
-            
+            playermanager.GetComponent<PointsController>().GainKills();
         }
             
     }

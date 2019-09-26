@@ -20,9 +20,8 @@ public class QuestController : MonoBehaviour
     }
     public void showQuestText(string questText)
     {
-      //dm.dialogLines.Clear();
-      //dm.dialogLines.Add(questText);
-      //dm.currentLine = 0;
-      //dm.ShowDialogue();
+        Debug.Log(questText);
+        dm.ShowInfoTextBox(questText);
+        
     }
 }
