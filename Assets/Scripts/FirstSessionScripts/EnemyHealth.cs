@@ -41,14 +41,13 @@ public class EnemyHealth : MonoBehaviour
         if(CurrentHealth <= 0)
         {
             Key = 1;
-            secondKey = 2;
             enemyKilled = true;
             Destroy(gameObject);
             //instantiate explosion effect
             playermanager.GetComponent<PointsController>().GainGold(GoldTogive);
             playermanager.GetComponent<PointsController>().GainXP(XpToGive);
             playermanager.GetComponent<PointsController>().GainKills();
-            dialogueController.GetComponent<DialogueController>().EventTextManager(GoldTogive,XpToGive,Key,secondKey);
+            dialogueController.GetComponent<DialogueController>().EventTextManager(GoldTogive,XpToGive,Key);
         }
             
     }

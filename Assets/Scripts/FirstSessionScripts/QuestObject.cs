@@ -68,12 +68,11 @@ public class QuestObject : MonoBehaviour
         {
             GoldTogive = 1000;
             XpToGive = 5000;
-            Key = 1;
-            KeySecond = 1;
+            Key = 2;
             //Debug.Log("Completed Mission!");
             playermanager.GetComponent<PointsController>().GainGold(GoldTogive);
             playermanager.GetComponent<PointsController>().GainXP(XpToGive);
-            dialogueController.GetComponent<DialogueController>().EventTextManager(GoldTogive,XpToGive,Key,KeySecond);
+            dialogueController.GetComponent<DialogueController>().EventBTextManager(GoldTogive,XpToGive,Key);
             endQuest();
             QuestEnded = true;
         }

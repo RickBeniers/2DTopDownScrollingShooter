@@ -12,11 +12,15 @@ public class PlayerHealth : MonoBehaviour
 
     public Image Healthbar;
     public Text PlayerHealthText;
+    [SerializeField]
+    private bool destroy;
+
+    private GameObject playerHealthController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerHealthController = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -24,13 +28,15 @@ public class PlayerHealth : MonoBehaviour
     {
         if (CurrentHealth <= 0)
         {
-            Destroy(gameObject);
+            destroy = true;
+            playerHealthController.GetComponent<PlayerController>().PlayerSelfDestruct(destroy);
         }
     }
-    public void HurtPlayer(int damageToGive)
+    public void HurtPlayer(int playerDamageToGive)
     {
-        CurrentHealth -= damageToGive;
+        CurrentHealth -= playerDamageToGive;
         Healthbar.fillAmount = CurrentHealth / startHealth;
+        PlayerHealthText.text = "Player Health :" + CurrentHealth;
     }
     public void SetMaxPlayerHealth()
     {

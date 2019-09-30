@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
 
     //public int level = 1;
     //public int health = 10;
+    private bool destroyme;
+    public GameObject PauseMenuUI;
 
     public void SavePlayer()
     {
         SaveSystems.SavePlayer(this);
         Debug.Log("position saved");
+        
     }
     public void LoadPlayer()
     {
@@ -27,12 +30,22 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
         Debug.Log("previous position loaded");
     }
+    public void PlayerSelfDestruct(bool destroySelf)
+    {
+        if (destroySelf == true)
+        {
+            Destroy(gameObject);
+            PauseMenuUI.GetComponent<PauseMenu>().Pause();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "EnemyShipTag")
         {
+            destroyme = true;
             Debug.Log("We are hit!");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            PlayerSelfDestruct(destroyme);
         }
     }
 }

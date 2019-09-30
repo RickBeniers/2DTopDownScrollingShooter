@@ -62,30 +62,18 @@ public class DialogueController : MonoBehaviour
         infoText.text = DialogueInfo;
         
     }
-    public void EventTextManager(int Gold, int XP, int Key, int Key2)
+    public void EventTextManager(int Gold, int XP, int Key)
     {
         EventText.enabled = true;
-        EventTextB.enabled = true;
         EventText.CrossFadeAlpha(1.0f, 0.01f, false);
-        EventTextB.CrossFadeAlpha(1.0f, 0.01f, false);
 
         //key will decide wich type of Text is shown
         if (Key == 1)
         {
-            if (Key2 == 1)
-            {
                 //if XP & Gold is added 
                 EventText.text = " + " + XP + " XP & " + Gold + " Gold";
                 EventText.CrossFadeAlpha(0.0f, 4.0f, false);
-                EventTextB.enabled = false;
-            }
-            else if (Key2 == 2)
-            {
-                EventTextB.text = " + " + XP + " XP & " + Gold + " Gold";
-                EventTextB.CrossFadeAlpha(0.0f, 4.0f, false);
-                EventText.enabled = false;
-            }
-            
+                //EventTextB.enabled = false;
         }
         if (Key == 2)
         {
@@ -99,10 +87,21 @@ public class DialogueController : MonoBehaviour
             EventText.text = " + " + XP + " XP";
             EventText.CrossFadeAlpha(0.0f, 4.0f, false);
         }
-        //Activate the event text
-        //EventText.enabled = true;
-        //fade out the text
-        //EventText.CrossFadeAlpha(0.0f, 5.0f, false);
+        
     }
-    
+    public void EventBTextManager(int Gold, int XP, int Keys)
+    {
+        EventTextB.enabled = true;
+        EventTextB.CrossFadeAlpha(1.0f, 0.01f, false);
+        Debug.Log("B");
+
+        if (Keys == 2)
+        {
+            EventTextB.text = " + " + XP + " XP & " + Gold + " Gold";
+            EventTextB.CrossFadeAlpha(0.0f, 4.0f, false);
+            EventText.enabled = false;
+        }
+    }
+
+
 }
