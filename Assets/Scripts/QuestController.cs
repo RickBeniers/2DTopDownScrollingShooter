@@ -20,7 +20,7 @@ public class QuestController : MonoBehaviour
     }
     public void showQuestText(string questText)
     {
-        Debug.Log(questText);
+        //Debug.Log(questText);
         dm.ShowInfoTextBox(questText);
         
     }

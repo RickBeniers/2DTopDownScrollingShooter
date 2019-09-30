@@ -20,8 +20,12 @@ public class EnemyHealth : MonoBehaviour
     private int XpToGive;
     [SerializeField]
     private int GoldTogive;
+    private int Key;
+    private int secondKey;
+
     private GameObject playermanager;
     private GameObject Questmanager;
+    private GameObject dialogueController;
     [SerializeField]
     private bool enemyKilled;
 
@@ -32,17 +36,21 @@ public class EnemyHealth : MonoBehaviour
         MaxHealth = startHealth;
 
         playermanager = GameObject.Find("PlayerManager");
+        dialogueController = GameObject.Find("DialoqueManager");
     }
     public void Update()
     {
         if(CurrentHealth <= 0)
         {
+            Key = 1;
+            secondKey = 2;
             enemyKilled = true;
             Destroy(gameObject);
             //instantiate explosion effect
             playermanager.GetComponent<PointsController>().GainGold(GoldTogive);
             playermanager.GetComponent<PointsController>().GainXP(XpToGive);
             playermanager.GetComponent<PointsController>().GainKills();
+            dialogueController.GetComponent<DialogueController>().EventTextManager(GoldTogive,XpToGive,Key,secondKey);
         }
             
     }

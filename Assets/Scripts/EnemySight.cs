@@ -10,7 +10,7 @@ public class EnemySight : MonoBehaviour
     {
         if (collision.tag == "playerShipTag")
         {
-            Debug.Log("detected");
+            //Debug.Log("detected");
             PlayerDetected = true;
         }
         else

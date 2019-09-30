@@ -12,35 +12,70 @@ public class QuestObject : MonoBehaviour
 
     private string startText;
     private string endText;
+
+    public Text dText;
+    public Text infoTexts;
+    public Text optionText;
+
+    private int XpToGive;
+    private int GoldTogive;
+    private int Key;
+    private int KeySecond;
+
+    private GameObject playermanager;
+    private GameObject dialogueController;
     [SerializeField]
     public int Counter;
     public Text infoText;
+    public GameObject questobject;
 
+    public bool QS;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool QuestEnded = false;
+
+    public void Start()
     {
-
+        questobject = GameObject.Find("QuestTest");
+        playermanager = GameObject.Find("PlayerManager");
+        dialogueController = GameObject.Find("DialoqueManager");
     }
-    // Update is called once per frame
-    void Update()
+    public void startQuest(bool QuestStarted)
     {
-        
-    }
-    public void startQuest()
-    {
-        startText = "Enemies destroyed " + Counter + "/10";
         QC.showQuestText(startText);
+        if (QuestStarted == true)
+        {
+            QS = true;
+        }
+        
     }
     public void endQuest()
     {
         QC.showQuestText(endText);
         QC.questsCompleted[questNumber] = true;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        dText.GetComponent<Text>().enabled = false;
+        infoText.GetComponent<Text>().enabled = false;
+        optionText.GetComponent<Text>().enabled = false;
     }
-    public void KillCounter(int KillCount)
+    public void KillCount(int amount)
     {
-        Counter = KillCount;
-        infoText.text = "" + Counter + "/10";
+        Counter = amount;
+        if (QuestEnded == false)
+        {
+            infoText.text = "" + Counter + "/10";
+        }
+        if (Counter == 10 && QuestEnded == false && QS == true)
+        {
+            GoldTogive = 1000;
+            XpToGive = 5000;
+            Key = 1;
+            KeySecond = 1;
+            //Debug.Log("Completed Mission!");
+            playermanager.GetComponent<PointsController>().GainGold(GoldTogive);
+            playermanager.GetComponent<PointsController>().GainXP(XpToGive);
+            dialogueController.GetComponent<DialogueController>().EventTextManager(GoldTogive,XpToGive,Key,KeySecond);
+            endQuest();
+            QuestEnded = true;
+        }
     }
 }

@@ -11,6 +11,8 @@ public class PointsController : MonoBehaviour
     private int currentGold = 0;
     //[SerializeField]
     public int Kills = 0;
+    [SerializeField]
+    private int QuestKills;
 
     public Text XPcounter;
     public Text Goldcounter;
@@ -40,7 +42,12 @@ public class PointsController : MonoBehaviour
     public void GainKills()
     {
         Kills++;
-        //InfoCounter.text = "" + Kills + "/10";
-        Questmanager.GetComponentInChildren<QuestObject>().KillCounter(Kills);
+        if (Questmanager.GetComponentInChildren<QuestObject>().QS == true )
+        {
+            QuestKills++;
+            InfoCounter.text = "" + QuestKills + "/10";
+            Questmanager.GetComponentInChildren<QuestObject>().KillCount(QuestKills);
+        }
+        
     }
 }

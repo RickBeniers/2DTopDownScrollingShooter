@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestA1 : MonoBehaviour
 {
@@ -6,17 +7,36 @@ public class QuestA1 : MonoBehaviour
     public string dialogue;
     private DialogueController dc;
 
+    public Text descriptionText;
+    //public Text infoText;
+    public Text optionText;
+    private GameObject Questmanager;
+    private bool QuestStarted;
+
     private void Start()
     {
         //questa1 = FindObjectOfType<QuestObject>();
         dc = FindObjectOfType<DialogueController>();
+        Questmanager = GameObject.Find("QuestManager");
+    }
+    public void Update()
+    {
+        
+    }
+    public void FinishQuest(bool finished)
+    {
+        Questmanager.GetComponentInChildren<QuestObject>().endQuest();
+        Debug.Log("finished Quest");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "playerShipTag")
         {
+            optionText.GetComponent<Text>().enabled = true;
+            descriptionText.GetComponent<Text>().enabled = true;
             dc.ShowBox(dialogue);
-            questa1.startQuest();
+            QuestStarted = true;
+            questa1.startQuest(QuestStarted);
             Destroy(gameObject);
         }
     }
