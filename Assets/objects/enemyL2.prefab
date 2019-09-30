@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 783422980713013913}
   - component: {fileID: 5696623684550159550}
   - component: {fileID: -4748777674019524514}
+  - component: {fileID: -6479109702494213077}
   m_Layer: 0
   m_Name: enemyL2
   m_TagString: EnemyShipTag
@@ -247,6 +248,21 @@ MonoBehaviour:
   startHealth: 200
   XpToGive: 200
   GoldTogive: 20
+  enemyKilled: 0
+--- !u!114 &-6479109702494213077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187729427062997469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b52ff5da1e47164eb188654a0f1865f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyBullet: {fileID: 669111280904430678, guid: 5c321f6ae0a88d740aa8b7a424bc9055,
+    type: 3}
 --- !u!1 &2635664990137305042
 GameObject:
   m_ObjectHideFlags: 0

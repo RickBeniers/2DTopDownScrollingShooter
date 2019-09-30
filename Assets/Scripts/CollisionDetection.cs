@@ -6,8 +6,8 @@ public class CollisionDetection : MonoBehaviour
 {
     public GameObject damageBurst;
 
-    [SerializeField]
-    public int damageToGive;
+    //[SerializeField]
+    private int damageToGive;
 
     private GameObject healthScript;
     private GameObject go;
@@ -25,13 +25,18 @@ public class CollisionDetection : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "EnemyShipTag")
+        if(collision.tag == "EnemyShipTag" && gameObject.tag == "PlayerBulletTag")
         {
             GameObject go = Instantiate(damageBurst, transform.position, transform.rotation);
             go.transform.parent = GameObject.Find("EffectCollector").transform;
             //GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
+            Debug.Log("Destroy");
             Destroy(gameObject);
             Destroy(go, 10f);
         } 
+        if(collision.tag == "playerShipTag" && gameObject.tag == "EnemyBulletTag")
+        {
+            Debug.Log("we are hit!");
+        }
     }
 }

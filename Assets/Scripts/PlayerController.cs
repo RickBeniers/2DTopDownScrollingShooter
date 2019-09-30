@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if((col.tag == "EnemyBulletTag") || (col.tag == "EnemyShipTag"))
+        if(col.tag == "EnemyShipTag")
         {
             Debug.Log("We are hit!");
             Destroy(gameObject);
