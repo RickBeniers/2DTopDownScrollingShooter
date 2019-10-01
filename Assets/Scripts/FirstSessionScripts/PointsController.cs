@@ -13,6 +13,12 @@ public class PointsController : MonoBehaviour
     public int Kills = 0;
     [SerializeField]
     private int QuestKills;
+    [SerializeField]
+    private int Distance;
+    [SerializeField]
+    private Vector2 StartDistance;
+    [SerializeField]
+    private Vector2 CurrentDistance;
 
     public Text XPcounter;
     public Text Goldcounter;
@@ -26,9 +32,13 @@ public class PointsController : MonoBehaviour
         XPcounter.text = "0";
         Goldcounter.text = "0";
         Questmanager = GameObject.Find("QuestManager");
+        StartDistance = new Vector2();
     }
-
-    
+    private void Update()
+    {
+        CurrentDistance = new Vector2();
+        CurrentDistance -= StartDistance;
+    }
     public void GainXP(int XpToGive)
     {
         currentXP += XpToGive;
@@ -49,5 +59,9 @@ public class PointsController : MonoBehaviour
             Questmanager.GetComponentInChildren<QuestObject>().KillCount(QuestKills);
         }
         
+    }
+    public void CalcDistance()
+    {
+        //CurrentDistance -= StartDistance;
     }
 }
