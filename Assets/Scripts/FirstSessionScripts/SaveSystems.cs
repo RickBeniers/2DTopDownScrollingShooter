@@ -37,7 +37,7 @@ public static class SaveSystems {
             Debug.Log("file path = " + path);
             //read the data.
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            Debug.Log("data load" + data.ToString());
+            Debug.Log("data loaded " + data.ToString());
             stream.Close();
             return data;
 

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     //public int health = 10;
     private bool destroyme;
     public GameObject PauseMenuUI;
+    public GameObject PlayButton;
 
     public void SavePlayer()
     {
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
             PauseMenuUI.GetComponent<PauseMenu>().Pause();
+            PlayButton.SetActive(false);
         }
     }
     private void OnTriggerEnter2D(Collider2D col)
