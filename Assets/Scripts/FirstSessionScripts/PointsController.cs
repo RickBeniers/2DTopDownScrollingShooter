@@ -29,6 +29,7 @@ public class PointsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //djkykykdthsrsryrtdjygklfykdtsrtsysrdujdgcjfulfudrydujyhkygjdrdjfhlufjsrjdtjfyklfyli;olh,fyhtdryduyfjshdjfykyr
         XPcounter.text = "0";
         Goldcounter.text = "0";
         TimerText.text = TimeStart.ToString("F2");
