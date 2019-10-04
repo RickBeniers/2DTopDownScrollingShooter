@@ -14,12 +14,12 @@ public class PointsController : MonoBehaviour
     [SerializeField]
     private int QuestKills;
     [SerializeField]
-    private int Distance;
+    private int TimePast;
     [SerializeField]
-    private Vector2 StartDistance;
-    [SerializeField]
-    private Vector2 CurrentDistance;
+    private float TimeStart;
 
+    public Text TimerText;
+   
     public Text XPcounter;
     public Text Goldcounter;
     public Text InfoCounter;
@@ -31,13 +31,14 @@ public class PointsController : MonoBehaviour
     {
         XPcounter.text = "0";
         Goldcounter.text = "0";
+        TimerText.text = TimeStart.ToString("F2");
         Questmanager = GameObject.Find("QuestManager");
-        StartDistance = new Vector2();
+        
     }
     private void Update()
     {
-        CurrentDistance = new Vector2();
-        CurrentDistance -= StartDistance;
+        TimeStart += Time.deltaTime;
+        TimerText.text = TimeStart.ToString("F2");
     }
     public void GainXP(int XpToGive)
     {
@@ -62,6 +63,6 @@ public class PointsController : MonoBehaviour
     }
     public void CalcDistance()
     {
-        //CurrentDistance -= StartDistance;
+        
     }
 }
