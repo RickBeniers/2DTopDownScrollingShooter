@@ -1,4 +1,3 @@
-
 Ontwerp project 1 leerjaar 3
 
 
@@ -12,9 +11,9 @@ Unity C#.
 Airplane based.
 
 speler vlieg in een vliegtuig op een scrollende achtergrond waardoor het lijkt dat de speler over terein vliegt (land, zee, verschillende bioms).
-speler krijg een missie aan de start van de game sessie, als hij deze voltooit dan is het level voorbij(voorbeeld : schakel 10 tegenstanders uit), 
+speler krijg een missie aan de start van de game sessie,(voorbeeld : schakel 10 tegenstanders uit), 
 speler wordt tegen gehouden door AI tegenstanders die in soortgelijke vliegtuigen vliegen. 
-door tegenstanders neer te schieten krijg de speler ervaring(XP).
+door tegenstanders neer te schieten krijg de speler ervaring(XP) en een geld bonus.
 speler verdiend geld elke 10 seconden en ontvangt een bonus voor het voltooien van missies en neerhalen van tegenstanders(Kills). 
 met XP en geld kan de speler betere vliegtuigen kopen.
 
@@ -22,7 +21,7 @@ met XP en geld kan de speler betere vliegtuigen kopen.
 -2 Monoplane
 -3 JetFighter
 -4 Supersonic Jet
--5 Stealth
+-5 Stealth Jet
 
 -----benodigde processen & onderdelen-V1----
 
@@ -32,13 +31,21 @@ achtergrond bestaande uit :
 	- laag 3 wolken
 	- laag 4 objecten
 5 speler gecontrolleerde vliegtuigen(W,A,D,S, Space).
-art/sprites voor zee, land, wolken, vliegtuigen, kogels.
+art/sprites voor zee, land, wolken(V2), vliegtuigen, kogels.
 AI gecontrolleerde vliegtuigen(Attack, left, right, forward)
 
 -----Uitbreiding-V2----
 
+meer vliegtuigen die de speler kan kopen, betere ammo met meer damage maar langzamer en langere laadtijd.
+sprites wolken toevoegen.
+In game shop werkend maken.
+highscore werkend maken.
+magazijn wapen implementeren.
+laadtijd magazijn wapen implementeren.
+oververhitting wapen implementeren.
+
 vliegtuig modificaties(speciale camouflage, logos, marks of exelence).
-speciale missies(Search&Destroy, drop rescue team, capture the enemy, Protect).
+meer/speciale missies(Search&Destroy, drop rescue team, capture the enemy, Protect).
 Co-op game sessie(2 spelers VS tegenstanders).
 DeathMatch game sessie(2 spelers tegen elkaar, met of zonder AI).
 evade Radar detection.
@@ -46,9 +53,55 @@ missle Lock & guidance
 
 -----benodigde processen & onderdelen-V2----
 
----------------------Deadlines---------------------
+meer vliegtuigenn speelbaar maken : 
+	-2 Monoplane
+	-3 JetFighter
+	-4 Supersonic Jet
+	-5 Stealth Jet
+
+sprite voor wolken gemaakt in 8bit stijl.
+magazijn voor kogels van wapen maken door middel van een text vak waar het max aantal kogels 1 magazijn - geinstantieerde kogels, 
+waneer magazijn leeg is begint laadtijd dat wordt ook weergegeven door een text vak met een timer er in, als timer op 0 staat is nieuwe magazijn geladen.
+
+damage standaard munitie = 1.
+magazijn standaard munitie = 500.
+laadtijd standaard munitie = 3.
+oververhitting standaard munitie = 1graden per 10 kogels, max Temp = 200graden
+
+3 nieuwe soorten munitie :
+	- geel, damage = 2, magazijn = 750, laadtijd = 5.
+	- oranje, damage = 3, magazijn = 1000, laadtijd = 6.
+	- rood, damage = 5, magazijn = 2000, laadtijd = 8.
+
+modificaties :
+speler kan de kleur veranderen, logos toevoegen en "marks of exelence" toevoegen voor het voltooien van speciale missies.
+extra missies : 
+	- Search&Destroy, vernietig een specifiek vliegtuig zoals een endBoss.
+	- Protect, verdedig een ander vliegtuig zoals een bomenwerper op weg naar een missie.
+	- drop rescue team, red een neergeschoten piloot uit de zee of uit de "Bush".
+	- capture the enemy, laat parachutisten vallen en neem vijandelijke gebouwen over.
+
+Co-OP gameplay, geef de optie om samne met een vriend te spelen op het elfde toetsen bord.
+DeathMatch, vecht tegen een andere speler(tegenover gestelde van CO-OP).
+evade Radar detection, mid game in WW2 tijdperk zullen er radar station verschijnen die een groene cirkel uitzenden(radar bereik), waneer de speler
+hier mee in aanraking komt word een een wave getriggered of een raket(late game).
+missle Lock & guidance system, in de late game komen er straaljagers die raketen kunnen afvuren en kogels kunnen af schieten, dit kan de speler dan ook.
+waneer een raket wordt geactiveerd(niet afgevuurd) begint de raket te zoeken naar een doel en verschijnt er een oranje animatie om het doelwit heen dat knipperd,
+waneer dit doel is gevonden word de animatie rood en word de raket afgevuurd, dit gaat allemaal gepaard met geluidseffecten :
+	- missle lock seeking
+	- missle lock 
+	- missle fired
+---------------------Deadlines--------------------
 
 5 september concept inleveren.
 1  oktober V1 inleveren
 29 oktober v2 inleveren
 
+---------------------------feedback---------------------
+
+feedback stoter 09-09-2019
+
+highscore lijst mogenlijk ?
+waarom database?
+planning in verband met GDD goed afgewerkt/alle mechanics meegenomen in planning?
+collision met andere vliegtuigen?
