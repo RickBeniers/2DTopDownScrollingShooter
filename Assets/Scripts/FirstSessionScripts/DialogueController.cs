@@ -31,22 +31,22 @@ public class DialogueController : MonoBehaviour
     {
         if (dialogueActive == false) 
         {
-            dText.GetComponent<Text>().enabled = false;
-            infoText.GetComponent<Text>().enabled = false;
-            optionText.GetComponent<Text>().enabled = false;
+            dText.GetComponent<Text>().text = " ";
+            infoText.GetComponent<Text>().text = " ";
+            optionText.GetComponent<Text>().text = " ";
         }
         if (dialogueActive && Input.GetKeyDown(KeyCode.F1))
         {
             infoText.GetComponent<Text>().enabled = true;
-            optionText.GetComponent<Text>().enabled = false;
+            optionText.GetComponent<Text>().text = " ";
         }
         if (dialogueActive && Input.GetKeyDown(KeyCode.F2))
         {
             //dBox.SetActive(false);
             dialogueActive = false;
-            dText.GetComponent<Text>().enabled = false;
-            infoText.GetComponent<Text>().enabled = false;
-            optionText.GetComponent<Text>().enabled = false;
+            dText.GetComponent<Text>().text = " ";
+            infoText.GetComponent<Text>().text = " ";
+            optionText.GetComponent<Text>().text = " ";
         }
 
     }
@@ -93,7 +93,7 @@ public class DialogueController : MonoBehaviour
     {
         EventTextB.enabled = true;
         EventTextB.CrossFadeAlpha(1.0f, 0.01f, false);
-        Debug.Log("B");
+        //Debug.Log("B");
 
         if (Keys == 2)
         {

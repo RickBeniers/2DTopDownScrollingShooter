@@ -53,9 +53,9 @@ public class QuestObject : MonoBehaviour
         QC.showQuestText(endText);
         QC.questsCompleted[questNumber] = true;
         //gameObject.SetActive(false);
-        dText.GetComponent<Text>().enabled = false;
-        infoText.GetComponent<Text>().enabled = false;
-        optionText.GetComponent<Text>().enabled = false;
+        dText.GetComponent<Text>().text = " ";
+        infoText.GetComponent<Text>().text = " ";
+        optionText.GetComponent<Text>().text = " ";
     }
     public void KillCount(int amount)
     {
