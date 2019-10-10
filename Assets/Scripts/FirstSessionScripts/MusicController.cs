@@ -63,50 +63,90 @@ public class MusicController : MonoBehaviour
             MusicSource.clip = soundEffect01;
             MusicSource.Play();
         }
+        else if(musicKey == -1)
+        {
+            MusicSource.Stop();
+        }
         if (musicKey == 2)
         {
             MusicSource.clip = soundEffect02;
             MusicSource.Play();
+        }
+        else if (musicKey == -2)
+        {
+            MusicSource.Stop();
         }
         if (musicKey == 3)
         {
             MusicSource.clip = soundEffect03;
             MusicSource.Play();
         }
+        else if (musicKey == -3)
+        {
+            MusicSource.Stop();
+        }
         if (musicKey == 4)
         {
             MusicSource.clip = soundEffect04;
             MusicSource.Play();
+        }
+        else if (musicKey == -4)
+        {
+            MusicSource.Stop();
         }
         if (musicKey == 5)
         {
             MusicSource.clip = soundEffect05;
             MusicSource.Play();
         }
+        else if (musicKey == -5)
+        {
+            MusicSource.Stop();
+        }
         if (musicKey == 6)
         {
             MusicSource.clip = soundEffect06;
             MusicSource.Play();
+        }
+        else if (musicKey == -6)
+        {
+            MusicSource.Stop();
         }
         if (musicKey == 7)
         {
             MusicSource.clip = soundEffect07;
             MusicSource.Play();
         }
+        else if (musicKey == -7)
+        {
+            MusicSource.Stop();
+        }
         if (musicKey == 8)
         {
             MusicSource.clip = soundEffect08;
             MusicSource.Play();
+        }
+        else if (musicKey == -8)
+        {
+            MusicSource.Stop();
         }
         if (musicKey == 9)
         {
             MusicSource.clip = soundEffect09;
             MusicSource.Play();
         }
+        else if (musicKey == -9)
+        {
+            MusicSource.Stop();
+        }
         if (musicKey == 10)
         {
             MusicSource.clip = soundEffect10;
             MusicSource.Play();
+        }
+        else if (musicKey == -10)
+        {
+            MusicSource.Stop();
         }
     }
 }

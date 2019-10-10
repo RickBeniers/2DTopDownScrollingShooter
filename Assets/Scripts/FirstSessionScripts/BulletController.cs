@@ -13,6 +13,7 @@ public class BulletController : MonoBehaviour
     [SerializeField]
     private int bulletsFired;
     public GameObject fireEffect;
+    public GameObject music;
 
     private void Start()
     {
@@ -28,11 +29,13 @@ public class BulletController : MonoBehaviour
         {
             shooting = true;
             fireEffect.SetActive(true);
+            music.GetComponent<MusicController>().soundEffectController(6);
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             shooting = false;
             fireEffect.SetActive(false);
+            music.GetComponent<MusicController>().soundEffectController(-6);
         }
         if (shooting == true)
         {
