@@ -7504,7 +7504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1980174905
 Transform:
   m_ObjectHideFlags: 0
@@ -7549,6 +7549,7 @@ MonoBehaviour:
   soundEffect09: {fileID: 0}
   soundEffect10: {fileID: 0}
   MusicSource: {fileID: 1980174907}
+  shootingAudioSource: {fileID: 1980174907}
 --- !u!82 &1980174907
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7768,6 +7769,7 @@ MonoBehaviour:
   bulletsFired: 0
   fireEffect: {fileID: 878329955}
   music: {fileID: 1980174904}
+  soundEffect06: {fileID: 8300000, guid: e38cfce69cfe4f24ab5f73d0d019bfc5, type: 3}
 --- !u!1 &2077221740
 GameObject:
   m_ObjectHideFlags: 0

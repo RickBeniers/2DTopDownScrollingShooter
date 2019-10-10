@@ -15,6 +15,8 @@ public class BulletController : MonoBehaviour
     public GameObject fireEffect;
     public GameObject music;
 
+    public AudioClip soundEffect06;
+
     private void Start()
     {
         //give the bullet a velocity when fired.
@@ -25,7 +27,7 @@ public class BulletController : MonoBehaviour
     private void Update()
     {
         //if spacebar is pressed execute ShootBullet script.
-        if (Input.GetButton("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             shooting = true;
             fireEffect.SetActive(true);
@@ -35,7 +37,8 @@ public class BulletController : MonoBehaviour
         {
             shooting = false;
             fireEffect.SetActive(false);
-            music.GetComponent<MusicController>().soundEffectController(-6);
+            music.GetComponent<MusicController>().shootingAudioSource.Stop();
+            //Debug.Log("stop shooting sound");
         }
         if (shooting == true)
         {
