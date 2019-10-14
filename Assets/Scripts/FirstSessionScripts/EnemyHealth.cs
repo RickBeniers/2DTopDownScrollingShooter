@@ -24,6 +24,8 @@ public class EnemyHealth : MonoBehaviour
     private GameObject playermanager;
     private GameObject Questmanager;
     private GameObject dialogueController;
+    private GameObject music;
+
     [SerializeField]
     private bool enemyKilled;
 
@@ -35,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
 
         playermanager = GameObject.Find("PlayerManager");
         dialogueController = GameObject.Find("DialoqueManager");
+        music = GameObject.Find("MusicController");
     }
     public void Update()
     {
@@ -48,6 +51,7 @@ public class EnemyHealth : MonoBehaviour
             playermanager.GetComponent<PointsController>().GainXP(XpToGive);
             playermanager.GetComponent<PointsController>().GainKills();
             dialogueController.GetComponent<DialogueController>().EventTextManager(GoldTogive,XpToGive,Key);
+            music.GetComponent<MusicController>().explosionSoundController(1);
         }
             
     }

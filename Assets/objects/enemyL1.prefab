@@ -319,6 +319,7 @@ MonoBehaviour:
   startHealth: 100
   XpToGive: 100
   GoldTogive: 10
+  music: {fileID: 4851008217923790403, guid: 7c898ddbc58d41f45bdf0e6cf79f3fc5, type: 3}
   enemyKilled: 0
 --- !u!114 &4168505626054423744
 MonoBehaviour:

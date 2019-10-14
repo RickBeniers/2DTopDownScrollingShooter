@@ -24,11 +24,17 @@ public class MusicController : MonoBehaviour
     public AudioClip soundEffect09;
     public AudioClip soundEffect10;
     public AudioSource MusicSource;
+    public AudioSource shootingAudioSource;
+    public AudioSource effectSource;
+
+    private GameObject soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        MusicSource.clip = soundEffect01;
+        soundManager = GameObject.Find("MusicController");
+        MusicSource.GetComponent<AudioSource>();
+        MusicSource.clip = soundEffect06;
 
         if (!mcExists)
         {
@@ -56,97 +62,45 @@ public class MusicController : MonoBehaviour
             //musicTracks[currentTrack].Stop();
         }
     }
-    public void soundEffectController(int musicKey)
+    public void explosionSoundController(int musicKey)
     {
-        if (musicKey == 1)
+
+        switch (musicKey)
         {
-            MusicSource.clip = soundEffect01;
-            MusicSource.Play();
-        }
-        else if(musicKey == -1)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 2)
-        {
-            MusicSource.clip = soundEffect02;
-            MusicSource.Play();
-        }
-        else if (musicKey == -2)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 3)
-        {
-            MusicSource.clip = soundEffect03;
-            MusicSource.Play();
-        }
-        else if (musicKey == -3)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 4)
-        {
-            MusicSource.clip = soundEffect04;
-            MusicSource.Play();
-        }
-        else if (musicKey == -4)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 5)
-        {
-            MusicSource.clip = soundEffect05;
-            MusicSource.Play();
-        }
-        else if (musicKey == -5)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 6)
-        {
-            MusicSource.clip = soundEffect06;
-            MusicSource.Play();
-        }
-        else if (musicKey == -6)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 7)
-        {
-            MusicSource.clip = soundEffect07;
-            MusicSource.Play();
-        }
-        else if (musicKey == -7)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 8)
-        {
-            MusicSource.clip = soundEffect08;
-            MusicSource.Play();
-        }
-        else if (musicKey == -8)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 9)
-        {
-            MusicSource.clip = soundEffect09;
-            MusicSource.Play();
-        }
-        else if (musicKey == -9)
-        {
-            MusicSource.Stop();
-        }
-        if (musicKey == 10)
-        {
-            MusicSource.clip = soundEffect10;
-            MusicSource.Play();
-        }
-        else if (musicKey == -10)
-        {
-            MusicSource.Stop();
+            case 1:
+                MusicSource.clip = soundEffect01;
+                MusicSource.Play();
+                //Debug.Log("play sound 1");
+                break;
+            case 2:
+                MusicSource.clip = soundEffect02;
+                MusicSource.Play();
+                //Debug.Log("play sound 2");
+                break;
+            case 3:
+                MusicSource.clip = soundEffect03;
+                MusicSource.Play();
+                //Debug.Log("play sound 3");
+                break;
+            case 4:
+                MusicSource.clip = soundEffect04;
+                MusicSource.Play();
+                //Debug.Log("play sound 4");
+                break;
+            case 5:
+                MusicSource.clip = soundEffect05;
+                MusicSource.Play();
+                //Debug.Log("play sound 5");
+                break;
+            case 6:
+                shootingAudioSource.clip = soundEffect06;
+                shootingAudioSource.Play();
+                //Debug.Log("play sound 6");
+                break;
         }
     }
+    public void soundEffectsController(int musicKeyss)
+    {
+        
+    } 
 }
