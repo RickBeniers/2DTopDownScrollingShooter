@@ -18,6 +18,7 @@ public static class SaveSystems {
         //write the data into the file and close the connection when done.
         PlayerData data = new PlayerData(player);
         Debug.Log("data saved " + data.ToString());
+
         formatter.Serialize(stream, data);
         stream.Close();
     }

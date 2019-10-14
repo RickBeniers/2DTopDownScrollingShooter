@@ -31,7 +31,7 @@ public class BulletController : MonoBehaviour
         {
             shooting = true;
             fireEffect.SetActive(true);
-            music.GetComponent<MusicController>().soundEffectController(6);
+            music.GetComponent<MusicController>().explosionSoundController(6);
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

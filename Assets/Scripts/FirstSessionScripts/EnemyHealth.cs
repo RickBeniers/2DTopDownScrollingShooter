@@ -47,11 +47,11 @@ public class EnemyHealth : MonoBehaviour
             enemyKilled = true;
             Destroy(gameObject);
             //instantiate explosion effect
-            music.GetComponent<MusicController>().soundEffectController(1);
             playermanager.GetComponent<PointsController>().GainGold(GoldTogive);
             playermanager.GetComponent<PointsController>().GainXP(XpToGive);
             playermanager.GetComponent<PointsController>().GainKills();
             dialogueController.GetComponent<DialogueController>().EventTextManager(GoldTogive,XpToGive,Key);
+            music.GetComponent<MusicController>().explosionSoundController(1);
         }
             
     }

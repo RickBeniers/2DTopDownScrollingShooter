@@ -25,10 +25,15 @@ public class MusicController : MonoBehaviour
     public AudioClip soundEffect10;
     public AudioSource MusicSource;
     public AudioSource shootingAudioSource;
+    public AudioSource effectSource;
+
+    private GameObject soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        soundManager = GameObject.Find("MusicController");
+        MusicSource.GetComponent<AudioSource>();
         MusicSource.clip = soundEffect06;
 
         if (!mcExists)
@@ -57,7 +62,7 @@ public class MusicController : MonoBehaviour
             //musicTracks[currentTrack].Stop();
         }
     }
-    public void soundEffectController(int musicKey)
+    public void explosionSoundController(int musicKey)
     {
 
         switch (musicKey)
@@ -93,6 +98,9 @@ public class MusicController : MonoBehaviour
                 //Debug.Log("play sound 6");
                 break;
         }
-        
     }
+    public void soundEffectsController(int musicKeyss)
+    {
+        
+    } 
 }
