@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,10 +20,16 @@ public class PlayerController : MonoBehaviour
     public GameObject ShopMenuUI;
     public GameObject PlayButton;
     public GameObject InputField;
+    public GameObject InputFieldButton;
+    public InputField inputt;
+
     private void Start()
     {
         TimerText = "" + TimerTextField;
         int.TryParse(TimerText, out Time);
+
+        inputt.onEndEdit.AddListener(delegate { DataHandler(inputt); });
+
     }
     public void SavePlayer()
     {
@@ -44,23 +49,18 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + userName);
 
-        //level = data.level;
-        //health = data.health;
-        //Vector3 position;
-        //position.x = data.position[0];
-        //position.y = data.position[1];
-        //position.z = data.position[2];
-        //transform.position = position;
     }
     public void PlayerSelfDestruct(bool destroySelf)
     {
         if (destroySelf == true)
         {
-            Destroy(gameObject);
+            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            //Destroy(gameObject);
             PauseMenuUI.GetComponent<PauseMenu>().Pause();
             PlayButton.SetActive(false);
             ShopMenuUI.SetActive(false);
             InputField.SetActive(true);
+            InputFieldButton.SetActive(true);
         }
     }
     private void OnTriggerEnter2D(Collider2D col)
@@ -72,5 +72,12 @@ public class PlayerController : MonoBehaviour
             //Destroy(gameObject);
             PlayerSelfDestruct(destroyme);
         }
+    }
+    public void DataHandler(InputField inputstring)
+    {
+        //Debug.Log(inputstring.text);
+        userName = inputstring.text;
+        SavePlayer();
+        SceneManager.LoadScene("HighscoreScene");
     }
 }

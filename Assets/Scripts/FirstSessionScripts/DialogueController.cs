@@ -2,28 +2,32 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueController : MonoBehaviour
 {
     public GameObject dBox;
+    private GameObject player;
 
     public Text dText;
     public Text infoText;
     public Text optionText;
     public Text EventText;
     public Text EventTextB;
+    public Text UserNameInput;
 
     public bool dialogueActive;
     public bool QuestActive;
 
     //public string info;
     public string[] DialogueLines;
+    public string UserNameString;
     public int currentLine;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -102,6 +106,14 @@ public class DialogueController : MonoBehaviour
             EventText.enabled = false;
         }
     }
+    //public void UserNameController()
+    //{
+    //    UserNameString = "" + UserNameInput;
+    //    player.GetComponent<PlayerController>().userName = UserNameString;
+    //    Debug.Log("" + UserNameString);
+    //    Debug.Log("" + player.GetComponent<PlayerController>().userName);
+    //    //SceneManager.LoadScene("HighscoreScene");
+    //}
 
 
 }

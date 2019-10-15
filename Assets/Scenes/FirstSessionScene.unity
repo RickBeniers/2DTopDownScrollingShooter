@@ -250,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &103458539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2476,12 +2476,14 @@ MonoBehaviour:
   optionText: {fileID: 2147154756}
   EventText: {fileID: 835084395}
   EventTextB: {fileID: 608044518}
+  UserNameInput: {fileID: 439835375}
   dialogueActive: 0
   QuestActive: 0
   DialogueLines:
   - Quest1
   - Quest2
   - Quest3
+  UserNameString: 
   currentLine: 0
 --- !u!1 &599889463
 GameObject:
@@ -3151,7 +3153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &747194765
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5827,7 +5829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1465846209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6093,6 +6095,8 @@ MonoBehaviour:
   ShopMenuUI: {fileID: 1596567387}
   PlayButton: {fileID: 1465846208}
   InputField: {fileID: 747194764}
+  InputFieldButton: {fileID: 1831228985}
+  inputt: {fileID: 747194766}
 --- !u!1 &1471627685
 GameObject:
   m_ObjectHideFlags: 0
@@ -7258,7 +7262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1831228986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7322,12 +7326,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300296783}
-        m_MethodName: HighscoreButton
-        m_Mode: 1
+      - m_Target: {fileID: 1469135047}
+        m_MethodName: DataHandler
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 747194766}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

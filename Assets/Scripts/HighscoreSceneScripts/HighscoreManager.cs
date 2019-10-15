@@ -7,19 +7,33 @@ public class HighscoreManager : MonoBehaviour
 {
     Dictionary<string, Dictionary<string, int> > PlayerScore;
 
+    private int Time;
+    private int Kills;
+    private string userName;
+
     // Start is called before the first frame update
     void Start()
     {
-        SetScore("Rick", "Time", 500);
-        SetScore("Rick", "Kills", 9);
-        
-        SetScore("BOB", "Time", 1500);
-        SetScore("BOB", "Kills", 50);
-        SetScore("BBB", "Deaths", 3);
-        SetScore("CCC", "Time", 6);
+        //SetScore("Rick", "Time", 500);
+        //SetScore("Rick", "Kills", 9);
 
-        Debug.Log(GetScore("Rick", "Time"));
-        
+        //SetScore("BOB", "Time", 1500);
+        //SetScore("BOB", "Kills", 50);
+        //SetScore("BBB", "Deaths", 3);
+        //SetScore("CCC", "Time", 6);
+
+        PlayerData data = SaveSystems.LoadPlayer();
+
+        Time = data.Time;
+        Kills = data.Kills;
+        userName = data.userName;
+
+        SetScore(userName, "Time", Time );
+        SetScore(userName, "Kills", Kills);
+
+        //Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + userName);
+        //Debug.Log(GetScore(userName, "Kills"));
+
     }
     void Init()
     {

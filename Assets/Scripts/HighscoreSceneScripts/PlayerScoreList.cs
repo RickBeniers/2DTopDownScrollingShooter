@@ -35,7 +35,7 @@ public class PlayerScoreList : MonoBehaviour
             GameObject go = (GameObject)Instantiate(PlayerScoreEntry);
             go.transform.SetParent(this.transform);
             go.transform.Find("Usernames").GetComponent<Text>().text = name;
-            go.transform.Find("Time").GetComponent<Text>().text = Hsm.GetComponent<HighscoreManager>().GetScore(name, "Time").ToString();
+            go.transform.Find("Time").GetComponent<Text>().text = Hsm.GetComponent<HighscoreManager>().GetScore(name, "Time").ToString() + " s";
             go.transform.Find("Kills").GetComponent<Text>().text = Hsm.GetComponent<HighscoreManager>().GetScore(name, "Kills").ToString();
         }
     }
