@@ -1,9 +1,11 @@
 ﻿using UnityEngine; //to use this script within unity
 using System.IO; //to open/close and change files on the system.
 using System.Runtime.Serialization.Formatters.Binary; //to give acces to binary formater.
+using System;
 
-public static class SaveSystems {
-
+public static class SaveSystems
+{
+    
     public static void SavePlayer(PlayerController player)
     {
         //instantiate the binaryFormatter which we will use to encrypt the saved data.
@@ -17,15 +19,17 @@ public static class SaveSystems {
 
         //write the data into the file and close the connection when done.
         PlayerData data = new PlayerData(player);
-        Debug.Log("data saved " + data.ToString());
+        //Debug.Log("data saved " + data.ToString());
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
     public static PlayerData LoadPlayer()
     {
+
         //go to the location of the file.
         string path = Application.persistentDataPath + "/player.savedData";
+        string[] readtext;
 
         //check if a file exists.
         if (File.Exists(path))
@@ -35,12 +39,14 @@ public static class SaveSystems {
 
             //open the savefile
             FileStream stream = new FileStream(path, FileMode.Open);
-            Debug.Log("file path = " + path);
+            //Debug.Log("file path = " + path);
             //read the data.
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            Debug.Log("data loaded " + data.ToString());
+
+            //Debug.Log("data loaded " + data.ToString());
             stream.Close();
-            return data;
+            //readtext = File.ReadAllLines(path);
+            return data;//readtext = File.ReadAllLines(path, Encoding.UTF8);
 
         }
         else

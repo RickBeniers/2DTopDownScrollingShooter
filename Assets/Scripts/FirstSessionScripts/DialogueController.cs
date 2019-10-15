@@ -106,14 +106,7 @@ public class DialogueController : MonoBehaviour
             EventText.enabled = false;
         }
     }
-    //public void UserNameController()
-    //{
-    //    UserNameString = "" + UserNameInput;
-    //    player.GetComponent<PlayerController>().userName = UserNameString;
-    //    Debug.Log("" + UserNameString);
-    //    Debug.Log("" + player.GetComponent<PlayerController>().userName);
-    //    //SceneManager.LoadScene("HighscoreScene");
-    //}
+    
 
 
 }

@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(inputstring.text);
         userName = inputstring.text;
         SavePlayer();
+        //SaveLoad.Save();
         SceneManager.LoadScene("HighscoreScene");
     }
 }

@@ -23,6 +23,7 @@ public class HighscoreManager : MonoBehaviour
         //SetScore("CCC", "Time", 6);
 
         PlayerData data = SaveSystems.LoadPlayer();
+        //SaveLoad.Load();
 
         Time = data.Time;
         Kills = data.Kills;

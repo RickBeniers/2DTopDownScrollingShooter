@@ -1307,6 +1307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359b6276eae5bbf42ac2d825f072eb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  DeleteButton: {fileID: 0}
 --- !u!1 &323435667
 GameObject:
   m_ObjectHideFlags: 0
@@ -7054,7 +7056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1779976575
 RectTransform:
   m_ObjectHideFlags: 0
