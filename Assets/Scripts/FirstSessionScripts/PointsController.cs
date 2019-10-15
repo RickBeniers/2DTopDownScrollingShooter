@@ -67,8 +67,5 @@ public class PointsController : MonoBehaviour
         }
         
     }
-    public void CalcDistance()
-    {
-        
-    }
+    
 }
