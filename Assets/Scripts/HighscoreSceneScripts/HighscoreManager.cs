@@ -11,6 +11,9 @@ public class HighscoreManager : MonoBehaviour
     private int Kills;
     private string userName;
 
+    public GameObject SL;
+    public static List<Game> LoadedData = new List<Game>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +26,8 @@ public class HighscoreManager : MonoBehaviour
         //SetScore("CCC", "Time", 6);
 
         PlayerData data = SaveSystems.LoadPlayer();
-        //SaveLoad.Load();
-
+        SL.GetComponent<SaveLoad>().Load();
+        
         Time = data.Time;
         Kills = data.Kills;
         userName = data.userName;

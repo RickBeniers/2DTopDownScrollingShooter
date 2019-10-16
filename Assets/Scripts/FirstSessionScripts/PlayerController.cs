@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject InputField;
     public GameObject InputFieldButton;
     public InputField inputt;
+    public GameObject SL;
 
     private void Start()
     {
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(inputstring.text);
         userName = inputstring.text;
         SavePlayer();
-        //SaveLoad.Save();
+        SL.GetComponent<SaveLoad>().Save();
         SceneManager.LoadScene("HighscoreScene");
     }
 }

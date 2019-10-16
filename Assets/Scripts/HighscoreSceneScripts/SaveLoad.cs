@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public class SaveLoad 
+public class SaveLoad : MonoBehaviour
 {
-    //public static List<Game> savedGames = new List<Game>();
-    public ArrayList playerdatas = new ArrayList();
+    public static List<Game> savedGames = new List<Game>();
+    //public List<Game> savedGames = new List<Game>();
 
     public void Save()
     {
-        playerdatas.Add(Game.current);
+        savedGames.Add(Game.current);
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");
-        bf.Serialize(file, playerdatas);
+        bf.Serialize(file, savedGames);
         Debug.Log("Saved " + Application.persistentDataPath + "/savedGames.gd");
         file.Close();
     }
@@ -24,9 +24,13 @@ public class SaveLoad
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
-            playerdatas = bf.Deserialize(file) as ArrayList;
-            Debug.Log("Loaded List " + playerdatas.GetType() );
+            savedGames = (List<Game>)bf.Deserialize(file);
+            Debug.Log("Loaded List " + savedGames);
             file.Close();
+        }
+        else
+        {
+            Debug.Log("Loading Failed");
         }
     }
 }
