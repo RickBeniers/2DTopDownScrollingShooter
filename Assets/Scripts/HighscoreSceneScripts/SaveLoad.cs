@@ -6,16 +6,17 @@ using System.IO;
 
 public class SaveLoad : MonoBehaviour
 {
-    public static List<Game> savedGames = new List<Game>();
+    //public static List<Game> savedGames = new List<Game>();
     //public List<Game> savedGames = new List<Game>();
 
     public void Save()
     {
-        savedGames.Add(Game.current);
+
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");
-        bf.Serialize(file, savedGames);
-        Debug.Log("Saved " + Application.persistentDataPath + "/savedGames.gd");
+        //Game data = new Game(player);
+        //bf.Serialize(file, data);
+        //Debug.Log("Saved " + Application.persistentDataPath + "/savedGames.gd");
         file.Close();
     }
     public void Load()
@@ -24,8 +25,8 @@ public class SaveLoad : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
-            savedGames = (List<Game>)bf.Deserialize(file);
-            Debug.Log("Loaded List " + savedGames);
+            //savedGames = (List<Game>)bf.Deserialize(file);
+            //Debug.Log("Loaded List " + savedGames);
             file.Close();
         }
         else
@@ -33,4 +34,6 @@ public class SaveLoad : MonoBehaviour
             Debug.Log("Loading Failed");
         }
     }
+
+
 }

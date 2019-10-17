@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 
 public class HighscoreManager : MonoBehaviour
 {
@@ -12,11 +14,12 @@ public class HighscoreManager : MonoBehaviour
     private string userName;
 
     public GameObject SL;
-    public static List<Game> LoadedData = new List<Game>();
+    public ArrayList savedDatas = new ArrayList();
 
     // Start is called before the first frame update
     void Start()
     {
+
         //SetScore("Rick", "Time", 500);
         //SetScore("Rick", "Kills", 9);
 
@@ -24,16 +27,19 @@ public class HighscoreManager : MonoBehaviour
         //SetScore("BOB", "Kills", 50);
         //SetScore("BBB", "Deaths", 3);
         //SetScore("CCC", "Time", 6);
-
-        PlayerData data = SaveSystems.LoadPlayer();
-        SL.GetComponent<SaveLoad>().Load();
+        //SL.GetComponent<SaveLoad>().Load();
         
-        Time = data.Time;
-        Kills = data.Kills;
-        userName = data.userName;
+        SaveSystems.LoadPlayer();
+        //savedData.Add(data.savedData);
+        //Debug.Log("ArrayList Counted objects = " + data.Count);
+        //Debug.Log("ArrayList capacity = " + data.Capacity);
 
-        SetScore(userName, "Time", Time );
-        SetScore(userName, "Kills", Kills);
+        //Kills = (int)data[0];
+        //Time = (int)data[1];
+        //userName = "" + data[2];
+
+        //SetScore(userName, "Time", Time);
+        //SetScore(userName, "Kills", Kills);
 
         //Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + userName);
         //Debug.Log(GetScore(userName, "Kills"));

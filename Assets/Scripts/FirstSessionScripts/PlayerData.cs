@@ -5,27 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    //public int level;
-    //public int health;
-    //public float[] position;
-
-    public int Time;
-    public int Kills;
-    public string userName;
+    public ArrayList savedData = new ArrayList();
 
     //collect data from the player script
     public PlayerData (PlayerController player)
     {
-        //level = player.level;
-        //health = player.health;
-        //position = new float[3];
-        //position[0] = player.transform.position.x;
-        //position[1] = player.transform.position.y;
-        //position[2] = player.transform.position.z;
+        savedData.Add(player.Kills.ToString());
+        savedData.Add(player.Time.ToString());
+        savedData.Add(player.name);
 
-        Time = player.Time;
-        Kills = player.Kills;
-        userName = player.userName;
+        Debug.Log("Kills : " + player.Kills);
+        Debug.Log("Time : " + player.Time);
+        Debug.Log("name : " + player.name);
     }
 
     public override string ToString()

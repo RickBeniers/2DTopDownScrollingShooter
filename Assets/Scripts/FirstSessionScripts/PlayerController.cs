@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,9 +9,9 @@ public class PlayerController : MonoBehaviour
     //public int level = 1;
     //public int health = 10;
 
-    public int Time =0;
-    public int Kills =0;
-    public string userName = "TestName";
+    public int Kills = 1;
+    public int Time = 100;
+    public string name = "TestRun";
 
     public Text TimerTextField;
     private string TimerText;
@@ -42,13 +43,13 @@ public class PlayerController : MonoBehaviour
     }
     public void LoadPlayer()
     {
-        PlayerData data = SaveSystems.LoadPlayer();
+        SaveSystems.LoadPlayer();
 
-        Time = data.Time;
-        Kills = data.Kills;
-        userName = data.userName;
+        //Time = data.Time;
+        //Kills = data.Kills;
+        //name = data.name;
 
-        Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + userName);
+        Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + name);
 
     }
     public void PlayerSelfDestruct(bool destroySelf)
@@ -77,7 +78,7 @@ public class PlayerController : MonoBehaviour
     public void DataHandler(InputField inputstring)
     {
         //Debug.Log(inputstring.text);
-        userName = inputstring.text;
+        name = inputstring.text;
         SavePlayer();
         SL.GetComponent<SaveLoad>().Save();
         SceneManager.LoadScene("HighscoreScene");

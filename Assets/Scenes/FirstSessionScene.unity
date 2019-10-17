@@ -6102,9 +6102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41182e16fa7496f48829ab2e6fd32c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 0
   Kills: 0
-  userName: TestName
+  Time: 0
+  name: TestRun
   TimerTextField: {fileID: 1757013611}
   PauseMenuUI: {fileID: 300296777}
   ShopMenuUI: {fileID: 1596567387}
@@ -8049,7 +8049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1980174905
 Transform:
   m_ObjectHideFlags: 0
