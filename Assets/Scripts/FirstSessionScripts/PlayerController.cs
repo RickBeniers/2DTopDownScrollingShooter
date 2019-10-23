@@ -41,17 +41,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log("position saved");
         
     }
-    public void LoadPlayer()
-    {
-        int[] loadedstats = SaveSystems.LoadPlayer();
-
-        Time = loadedstats[0];
-        Kills = loadedstats[1];
-        //name = data.name;
-
-        Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + name);
-
-    }
     public void PlayerSelfDestruct(bool destroySelf)
     {
         if (destroySelf == true)

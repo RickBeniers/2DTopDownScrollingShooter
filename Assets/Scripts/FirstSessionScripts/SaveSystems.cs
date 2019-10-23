@@ -3,6 +3,7 @@ using System.IO;                                                                
 using System.Runtime.Serialization.Formatters.Binary;                           //to give acces to binary formater.
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public static class SaveSystems
 {
@@ -14,7 +15,7 @@ public static class SaveSystems
 
         BinaryFormatter formatter = new BinaryFormatter();                                                                      //instantiate the binaryFormatter which we will use to encrypt the saved data.
                                                                                                                                 //to create a file path in the system + a folder to save the data inside off.
-        FileStream stream = new FileStream(Application.persistentDataPath + "/player.savedData", FileMode.Create);              //filestream is used to read and write from a particular file and create the file we want to store/save data in.
+        FileStream stream = new FileStream(Application.persistentDataPath + "/player.savedData", FileMode.Append);              //filestream is used to read and write from a particular file and create the file we want to store/save data in.
         PlayerData data = new PlayerData(player);                                                                               //write the data into the file and close the connection when done.
  
         formatter.Serialize(stream, data);
@@ -22,7 +23,7 @@ public static class SaveSystems
 
         Debug.Log(Application.persistentDataPath + "/player.savedData");
     }
-    public static int[] LoadPlayer()
+    public static List<string> LoadPlayer()
     {
         if (File.Exists(Application.persistentDataPath + "/player.savedData"))                                                  //check if a file exists.
         {
@@ -43,13 +44,14 @@ public static class SaveSystems
 [Serializable]
 public class PlayerData
 {
-    public int[] stats;
+    public List<string> stats = new List<string>();
 
     public PlayerData(PlayerController player)
     {
-        stats = new int[4];
-        stats[0] = player.Kills;
-        stats[1] = player.Time;
+        //stats[0] = player.Kills;
+        stats.Add("" + player.Kills);
+        //stats[1] = player.Time;
+        stats.Add("" + player.Time);
     }
 }
 //      //Debug.Log("data saved " + data.ToString());
