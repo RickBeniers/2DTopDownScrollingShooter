@@ -43,10 +43,10 @@ public class PlayerController : MonoBehaviour
     }
     public void LoadPlayer()
     {
-        SaveSystems.LoadPlayer();
+        int[] loadedstats = SaveSystems.LoadPlayer();
 
-        //Time = data.Time;
-        //Kills = data.Kills;
+        Time = loadedstats[0];
+        Kills = loadedstats[1];
         //name = data.name;
 
         Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + name);
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(inputstring.text);
         name = inputstring.text;
         SavePlayer();
-        SL.GetComponent<SaveLoad>().Save();
+        //SL.GetComponent<SaveLoad>().Save();
         SceneManager.LoadScene("HighscoreScene");
     }
 }

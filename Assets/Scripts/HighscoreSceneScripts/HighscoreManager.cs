@@ -14,22 +14,22 @@ public class HighscoreManager : MonoBehaviour
     private string userName;
 
     public GameObject SL;
-    public ArrayList savedDatas = new ArrayList();
+    //public ArrayList savedDatas = new ArrayList();
 
     // Start is called before the first frame update
     void Start()
     {
 
-        //SetScore("Rick", "Time", 500);
-        //SetScore("Rick", "Kills", 9);
+        SetScore("Rick", "Time", 500);
+        SetScore("Rick", "Kills", 9);
 
-        //SetScore("BOB", "Time", 1500);
-        //SetScore("BOB", "Kills", 50);
-        //SetScore("BBB", "Deaths", 3);
-        //SetScore("CCC", "Time", 6);
-        //SL.GetComponent<SaveLoad>().Load();
-        
-        SaveSystems.LoadPlayer();
+        SetScore("BOB", "Time", 1500);
+        SetScore("BOB", "Kills", 50);
+        SetScore("BBB", "Deaths", 3);
+        SetScore("CCC", "Time", 6);
+
+        GetComponent<PlayerController>().LoadPlayer();
+        //SaveSystems.LoadPlayer();
         //savedData.Add(data.savedData);
         //Debug.Log("ArrayList Counted objects = " + data.Count);
         //Debug.Log("ArrayList capacity = " + data.Capacity);
