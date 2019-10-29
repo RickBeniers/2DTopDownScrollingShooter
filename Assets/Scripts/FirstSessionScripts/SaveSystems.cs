@@ -15,7 +15,7 @@ public static class SaveSystems
 
         BinaryFormatter formatter = new BinaryFormatter();                                                                      //instantiate the binaryFormatter which we will use to encrypt the saved data.
                                                                                                                                 //to create a file path in the system + a folder to save the data inside off.
-        FileStream stream = new FileStream(Application.persistentDataPath + "/player.savedData", FileMode.Append);              //filestream is used to read and write from a particular file and create the file we want to store/save data in.
+        FileStream stream = new FileStream(Application.persistentDataPath + "/player.savedData", FileMode.Create);              //filestream is used to read and write from a particular file and create the file we want to store/save data in.
         PlayerData data = new PlayerData(player);                                                                               //write the data into the file and close the connection when done.
  
         formatter.Serialize(stream, data);
@@ -52,6 +52,7 @@ public class PlayerData
         stats.Add("" + player.Kills);
         //stats[1] = player.Time;
         stats.Add("" + player.Time);
+        stats.Add("" + player.name);
     }
 }
 //      //Debug.Log("data saved " + data.ToString());

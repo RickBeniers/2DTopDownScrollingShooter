@@ -16,7 +16,7 @@ public class HighscoreManager : MonoBehaviour
     private int Kills4;
     private int Kills5;
     private int Kills6;
-    private string userName = "User01";
+    private string userName;
 
     public GameObject SL;
     //public ArrayList savedDatas = new ArrayList();
@@ -41,7 +41,8 @@ public class HighscoreManager : MonoBehaviour
 
         int.TryParse(loadedstats[0], out Kills);
         int.TryParse(loadedstats[1], out Time);
-        //int.TryParse(loadedstats[2], out Kills2);
+                     userName = loadedstats[2];
+        //int.TryParse(loadedstats[2], out Kills);
         //int.TryParse(loadedstats[3], out Kills3);
         //int.TryParse(loadedstats[4], out Kills4);
         //int.TryParse(loadedstats[5], out Kills5);
