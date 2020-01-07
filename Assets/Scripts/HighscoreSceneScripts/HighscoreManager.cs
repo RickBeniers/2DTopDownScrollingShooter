@@ -9,6 +9,7 @@ public class HighscoreManager : MonoBehaviour
 {
     Dictionary<string, Dictionary<string, int> > PlayerScore;
 
+
     private int Time;
     private int Kills;
     private int Kills2;
@@ -20,7 +21,7 @@ public class HighscoreManager : MonoBehaviour
 
     public GameObject SL;
     //public ArrayList savedDatas = new ArrayList();
-    public List<string> loadedstats = new List<string>();
+    public List<int> loadedstats = new List<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -39,23 +40,23 @@ public class HighscoreManager : MonoBehaviour
 
         loadedstats = SaveSystems.LoadPlayer();
 
-        int.TryParse(loadedstats[0], out Kills);
-        int.TryParse(loadedstats[1], out Time);
+        //int.TryParse(loadedstats[0], out Kills);
+        //int.TryParse(loadedstats[1], out Time);
         //int.TryParse(loadedstats[2], out Kills2);
         //int.TryParse(loadedstats[3], out Kills3);
         //int.TryParse(loadedstats[4], out Kills4);
         //int.TryParse(loadedstats[5], out Kills5);
 
-        //Kills = (int)data[0];
-        //Time = (int)data[1];
+        //Kills = (int)loadedstats[0];
+        //Time = (int)loadedstats[1];
         //userName = "" + data[2];
 
         SetScore(userName, "Time", Time);
         SetScore(userName, "Kills", Kills);
 
         Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + userName);
-        Debug.Log("List Counted objects = " + loadedstats.Count);
-        Debug.Log("List capacity = " + loadedstats.Capacity);
+        //Debug.Log("List Counted objects = " + loadedstats.Count);
+        //Debug.Log("List capacity = " + loadedstats.Capacity);
     }
     void Init()
     {

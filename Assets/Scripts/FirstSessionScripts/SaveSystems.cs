@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public static class SaveSystems
 {
-    public static ArrayList savedData = new ArrayList();
+    //public static ArrayList savedData = new ArrayList();
     //private const string Save_Separator = "##Save-VALUE##";
 
     public static void SavePlayer(PlayerController player)
@@ -23,7 +23,7 @@ public static class SaveSystems
 
         Debug.Log(Application.persistentDataPath + "/player.savedData");
     }
-    public static List<string> LoadPlayer()
+    public static List<int> LoadPlayer()
     {
         if (File.Exists(Application.persistentDataPath + "/player.savedData"))                                                  //check if a file exists.
         {
@@ -34,6 +34,7 @@ public static class SaveSystems
 
             stream.Close();                                                                                                     //close the connection to the file.
             return data.stats;                                                                                                  //return the data
+
         }
         else
         {
@@ -44,14 +45,14 @@ public static class SaveSystems
 [Serializable]
 public class PlayerData
 {
-    public List<string> stats = new List<string>();
+    public List<int> stats = new List<int>();
 
     public PlayerData(PlayerController player)
     {
         //stats[0] = player.Kills;
-        stats.Add("" + player.Kills);
+        stats.Add(player.Kills);
         //stats[1] = player.Time;
-        stats.Add("" + player.Time);
+        stats.Add(player.Time);
     }
 }
 //      //Debug.Log("data saved " + data.ToString());
