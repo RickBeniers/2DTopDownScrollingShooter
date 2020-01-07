@@ -41,7 +41,7 @@ public class HighscoreManager : MonoBehaviour
 
         int.TryParse(loadedstats[0], out Kills);
         int.TryParse(loadedstats[1], out Time);
-                     userName = loadedstats[2];
+        userName =   loadedstats[2];
         //int.TryParse(loadedstats[2], out Kills);
         //int.TryParse(loadedstats[3], out Kills3);
         //int.TryParse(loadedstats[4], out Kills4);
@@ -55,9 +55,10 @@ public class HighscoreManager : MonoBehaviour
         SetScore(userName, "Kills", Kills);
 
         Debug.Log("data loaded" + " Time : " + Time + ", Kills : " + Kills + ", username : " + userName);
-        Debug.Log("List Counted objects = " + loadedstats.Count);
-        Debug.Log("List capacity = " + loadedstats.Capacity);
+        //Debug.Log("List Counted objects = " + loadedstats.Count);
+        //Debug.Log("List capacity = " + loadedstats.Capacity);
     }
+
     void Init()
     {
         if (PlayerScore != null)
@@ -102,6 +103,12 @@ public class HighscoreManager : MonoBehaviour
         Init();
         return PlayerScore.Keys.OrderByDescending( n => GetScore(n, sortingScoreType) ).ToArray();
     }
-
-    
+    private void Update()
+    {
+        Debug.Log("List Counted objects = " + loadedstats.Count);
+        Debug.Log("List capacity = " + loadedstats.Capacity);
+    }
 }
+
+
+

@@ -33,7 +33,7 @@ public class QuestA1 : MonoBehaviour
         if (collision.tag == "playerShipTag")
         {
             optionText.GetComponent<Text>().enabled = true;
-            descriptionText.GetComponent<Text>().enabled = true;
+            descriptionText.text= "Text";
             dc.ShowBox(dialogue);
             QuestStarted = true;
             questa1.startQuest(QuestStarted);
