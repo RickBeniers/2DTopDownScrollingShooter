@@ -40,9 +40,9 @@ public class HighscoreManager : MonoBehaviour
 
         loadedstats = SaveSystems.LoadPlayer();
 
-        int.TryParse(loadedstats[0], out Kills);
-        int.TryParse(loadedstats[1], out Time);
-        userName =   loadedstats[2];
+        //int.TryParse(loadedstats[0], out Kills);
+        //int.TryParse(loadedstats[1], out Time);
+        //userName =   loadedstats[2];
         //int.TryParse(loadedstats[2], out Kills);
         //int.TryParse(loadedstats[3], out Kills3);
         //int.TryParse(loadedstats[4], out Kills4);
