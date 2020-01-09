@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryControll : MonoBehaviour
 {
-    private List<Playeritem> playerInventory;
+    public List<Playeritem> playerInventory;
 
     [SerializeField]
     private GameObject ButtonTemplate;
@@ -13,12 +13,15 @@ public class InventoryControll : MonoBehaviour
     private GridLayoutGroup gridGroup;
     [SerializeField]
     private Sprite[] iconSprites;
+    [SerializeField] private int PlayerPlanesAmount;
+    public bool TextActive;
 
     private void Start()
     {
+        //PlayerPlanesAmount = 3;
         playerInventory = new List<Playeritem>();
-
-        for(int i = 1; i<=5; i++)
+        
+        for(int i = 1; i<=PlayerPlanesAmount; i++)
         {
             Playeritem newItem = new Playeritem();
             newItem.iconSprite = iconSprites[Random.Range(0, iconSprites.Length)];
@@ -44,10 +47,12 @@ public class InventoryControll : MonoBehaviour
 
             newButton.GetComponent<InventoryButton>().SetIcon(newItem.iconSprite);
             newButton.transform.SetParent(ButtonTemplate.transform.parent, false);
+            newButton.GetComponentInChildren<Text>().enabled = false;
         }
     }
     public class Playeritem
     {
         public Sprite iconSprite;
     }
+   
 }
