@@ -52,12 +52,8 @@ public class PlayerData
         //stats[0] = player.Kills;
         stats.Add(player.Kills);
         //stats[1] = player.Time;
-<<<<<<< HEAD
-        stats.Add(player.Time);
-=======
         stats.Add("" + player.Time);
         stats.Add("" + player.name);
->>>>>>> aec1adc92fa1e58cc57abf43616e1612a7483102
     }
 }
 //      //Debug.Log("data saved " + data.ToString());
