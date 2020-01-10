@@ -106,8 +106,8 @@ public class HighscoreManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("List Counted objects = " + loadedstats.Count);
-        Debug.Log("List capacity = " + loadedstats.Capacity);
+        //Debug.Log("List Counted objects = " + loadedstats.Count);
+        //Debug.Log("List capacity = " + loadedstats.Capacity);
     }
 }
 

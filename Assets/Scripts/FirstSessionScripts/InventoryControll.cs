@@ -28,11 +28,11 @@ public class InventoryControll : MonoBehaviour
 
             playerInventory.Add(newItem);
         }
-        GenInventory();
+        //GenInventory();
     }
     void GenInventory()
     {
-        if (playerInventory.Count < 3)
+        if (playerInventory.Count < PlayerPlanesAmount)
         {
             gridGroup.constraintCount = playerInventory.Count;
         }
