@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerAirplaneList : MonoBehaviour
 {
 
-    [SerializeField]private GameObject[] PlayerSpriteList;
-    public GameObject CurrentPlayerSprite;
-    public GameObject DefaultPlayerSprite;
-    public GameObject Level1PlayerSprite;
-    public GameObject Level2PlayerSprite;
+    [SerializeField]
+    private List<Sprite> PlayerSpriteList;
+    public Sprite CurrentPlayerSprite;
 
-    [SerializeField] private int playerSpriteNumber;
+    [SerializeField]
+    public int playerSpriteNumber;
+    public int placeholder;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerSpriteAssignment(CurrentPlayerSprite);
+        PlayerSpriteAssignment(playerSpriteNumber);
     }
 
     // Update is called once per frame
@@ -24,15 +24,21 @@ public class PlayerAirplaneList : MonoBehaviour
     {
         
     }
-    void PlayerSpriteAssignment(GameObject CurrentSprite)
+    public void PlayerSpriteAssignment(int CurrentSprite)
     {
-        switch (playerSpriteNumber)
+        switch (CurrentSprite)
         {
             case 1:
+                CurrentPlayerSprite = PlayerSpriteList[0];
+                placeholder = 1;
                 break;
             case 2:
+                CurrentPlayerSprite = PlayerSpriteList[1];
+                placeholder = 2;
                 break;
             case 3:
+                CurrentPlayerSprite = PlayerSpriteList[2];
+                placeholder = 3;
                 break;
         }
     }

@@ -15,6 +15,12 @@ public class InventoryControll : MonoBehaviour
     private Sprite[] iconSprites;
     [SerializeField] private int PlayerPlanesAmount;
     public bool TextActive;
+    [SerializeField]
+    public bool GrayHannoverSelected;
+    [SerializeField]
+    public bool BlueHannoverSelected;
+    [SerializeField]
+    public bool GreenHannoverSelected;
 
     private void Start()
     {
